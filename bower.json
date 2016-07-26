@@ -1,0 +1,33 @@
+{
+  "name": "KMSite",
+  "description": "",
+  "main": "",
+  "authors": [
+    "Sean <sfortner001@gmail.com>"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/blade10034/KMsite",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "directory": "public/bower_components",
+  "dependencies": {
+    "videogular": "^1.4.4",
+    "bootstrap": "^3.3.7",
+    "moment": "^2.14.1",
+    "angular": "^1.5.8",
+    "videogular-buffering": "^1.4.4",
+    "videogular-controls": "^1.4.4",
+    "videogular-dash": "^1.4.4",
+    "videogular-overlay-play": "^1.4.4",
+    "videogular-poster": "^1.4.4",
+    "ng-confirm": "angular-confirm#^1.1.0",
+    "angular-file-upload": "^2.3.4",
+    "angular-smart-table": "^2.1.8",
+    "angular-ui-calendar": "^1.0.1"
+  }
+}
