@@ -1,0 +1,351 @@
+body{
+	margin: 0;
+	padding: 0;
+	font-family: sans-serif;
+	background-image: url('/images/background/cream_pixels.png');
+	background-color: #fff;
+	color: #000;
+	height: 100%;
+	display: block;
+}
+
+#header{
+	width: 100%;
+	height: 80px;
+	background-color: rgba(166, 219, 238, .5);
+
+}
+
+#inheader{
+	height: 80px;
+	width: 950px;
+	margin: 0 auto;
+}
+
+#logo{
+	display: block;
+	margin: 0;
+	padding: 0;
+	width: 30%;
+	height: 80px;
+}
+
+#logo a{
+	position: absolute;
+	margin: 3px 0 0 0;
+	display: block;
+}
+
+#logo #ptop{
+	display: block;
+	font-family: sans-serif;
+	font-weight: 300;
+	font-size: 1.5em;
+	text-transform: uppercase;
+	letter-spacing: 0.3em;
+	float: left;
+	margin: 17px 0 0 80px;
+	color: #FFB585;
+	text-shadow: 1px 1px #99ADEB;
+	height: 50px;
+	width: 500px;
+	text-decoration: none;
+}
+
+#logo #pbottom{
+	display: block;
+	font-family: sans-serif;
+	font-weight: 300;
+	font-size: 0.5em;
+	text-transform: uppercase;
+	letter-spacing: 0.3em;
+	float: left;
+	margin: -23px 0 0 90px;
+	color: #FFA366;
+	height: 50px;
+	width: 500px;
+	text-decoration: none;
+}
+
+#header #inheader ul{
+	font-family: sans-serif;
+	font-weight: 300;
+	font-size: 0.8em;
+	text-transform: uppercase;
+	letter-spacing: 0.1em;
+	position: absolute;
+	margin: 0 0 0 400px;
+}
+
+#header #inheader ul li{
+	float: right;
+	list-style-type: none;
+	margin: 0 0 0 30px;
+}
+
+#header #inheader ul li a{
+	float: right;
+	text-align: right;
+	list-style-type: none;
+	margin: 30px 0 0 330px;
+	width: 140px;
+	height: 50px;
+	color: #FFA366;
+	text-decoration: none;
+	display: block;
+}
+
+#header #inheader ul li a:hover{
+	color: #FFFFFF;
+}
+
+#drop{
+}
+
+#carousel{
+	height: 600px;
+	width: 100%;
+	margin: 0 0 0 0;
+	background-color: rgba(166, 219, 238, .15);
+}
+
+#main {
+	padding: 32px 0 32px 0;
+	width: 950px;
+	height: 473px;
+	margin: 0 auto;
+}
+
+#upcoming{
+	width: 260px;
+	float: left;
+	margin: 0 0 0 0;
+}
+
+#upheader{
+	border-bottom: 1px solid #474747;
+	padding: 15px;
+	height: 25px;
+	font-family: sans-serif;
+	font-weight: 450;
+	font-size: 1.5em;
+	text-transform: uppercase;
+	background-color: rgba(166, 219, 238, .2);
+}
+
+#upheader a{
+	position: absolute;
+	text-decoration: none;
+	text-transform: uppercase;
+	color: #FFA366;
+}
+
+#upheader a:hover{
+	color: #FFFFFF;
+}
+
+#upmain{
+	padding: 10px 0 15px 0;
+	background-color: rgba(166, 219, 238, .5);
+	margin: 0;
+	display: block;
+	height: 228;
+	width: 260;
+}
+
+#upmain ul{
+	padding: 0;
+}
+
+#upmain ul li{
+	list-style-type: none;
+	margin: 0;
+	display: block;
+	width: 260px;
+	height: 60px;
+}
+
+#upmain ul li h6{
+	position: relative;
+	display: table-cell;
+	vertical-align: middle;
+	width: 48px;
+	height: 60px;
+	text-align: center;
+	font-weight: 700;
+	font-size: 1.250em;
+	text-transform: uppercase;
+}
+
+#upmain ul li h6 a{
+	display: block;
+	text-decoration: none;
+	color: #FFA366;
+	text-shadow: 0 1px #4b4b4b;
+}
+
+#upmain ul li h4{
+	height: 60px;
+	width: 200px;
+	position: relative;
+	margin: 0 0 0 0;
+	display: table-cell;
+	vertical-align: middle;
+}
+
+#upmain ul li h4 a{
+	color: #FFA366;
+	display: block;
+	width: 188px;
+	text-decoration: none;
+	font-size: 1em;
+	font-weight: 300;
+	padding: 0 0 5px 12px;
+}
+
+#sermons{
+	width: 659px;
+	float: right;
+	margin: 0 0 0 0;
+}
+
+#sermonheader{
+	padding: 15px;
+	height: 25px;
+	font-family: sans-serif;
+	font-weight: 450;
+	font-size: 1.5em;
+	text-transform: uppercase;
+	background-color: rgba(166, 219, 238, .5);
+}
+
+#sermonheader a{
+	position: absolute;
+	display: block;
+	margin: 0 0 0 0;
+	color: #FFA366;
+	text-decoration: none;
+	text-transform: uppercase;
+	display: block;
+	height: 25px;
+	width: 250px;
+}
+
+#sermonheader a:hover{
+	color: #FFFFFF;
+}
+
+#sermonbackground{
+	display: block;
+	margin: 0 auto;
+	padding: 19px;
+	width: 621px;
+	height: 374px;
+	background-color: rgba(166, 219, 238, .2);
+}
+
+#sermonmain{
+	display: block;
+	margin: 0;
+	padding: 0;
+	width: 621px;
+	height: 374px;
+	border: 1px solid;
+	border-color: rgba(255, 163, 102, 0);
+}
+
+#sermonmain a{
+	margin: 0 0 0 0;
+	padding: 0;
+	display: block;
+}
+
+#sermonmain:hover{
+	border-color: rgb(255, 163, 102);
+}
+
+#footer{
+	height: 102px;
+	width: 100%;
+	background: url('');
+	background-color: rgba(166, 219, 238, .5);
+	clear: both;
+}
+
+#infooter{
+	height: 70px;
+	width: 950px;
+	padding: 32px 32px 0 32px;
+	margin: auto;
+}
+
+#footer #infooter ul{
+	position: absolute;
+	width: 950px;
+	margin: 0 auto;
+	padding: 0;
+}
+
+#footer #infooter ul li{
+	float: left;
+	list-style-type: none;
+	margin: 0 0 0 0;
+	width: 33.33%;
+}
+
+#footer #infooter ul li a{
+	font-size: 0.975em;
+	display: block;
+	text-transform: uppercase;
+	font-family: 'Montserrat', san-serif;
+	text-decoration: none;
+	color: #FFA366;
+}
+
+#footer #infooter ul li a:hover{
+	color: #FFFFFF;
+}
+
+#infooter #fbar{
+	clear: both;
+	margin: 40px 0 0 0;
+	padding: 8px 0 0 0;
+	border-top: 1px solid #424242;
+	border-color:
+	color: #474747;
+}
+
+#infooter #fbar #left{
+	display: block;
+	width: 550px;
+	margin: -4px 0 0 0;
+	float: left;
+	font-family: san-serif;
+	font-size: 0.750em;
+	color: #FFA366;
+}
+
+#infooter #fbar #right{
+	display: block;
+	text-align: right;
+	width: 300px;
+	margin: -4px 0 0 0;
+	float: right;
+	font-family: san-serif;
+	font-size: 0.750em;
+	color: #FFA366;
+}
+
+#infooter #fbar  a{
+}
+
+.footerleft{
+}
+
+.footercenter{
+	text-align: center;
+}
+
+.footerright{
+	text-align: right;
+}

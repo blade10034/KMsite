@@ -1,0 +1,78 @@
+<div ng-controller="SermonsController">
+
+	<div ng-include src="'/ng/sermons/sermons.html'"></div>
+	
+	<div ng-controller="SermonAudioPlayer as audioController">
+	  <div class="videogular-container audio">
+			<videogular vg-player-ready="audioController.onPlayerReady($API)" vg-change-source="audioController.onChangeSource($source)" vg-theme="audioController.config.theme" >
+				<vg-media vg-src="audioController.config.sources"
+						  vg-tracks="audioController.config.tracks">
+				</vg-media>
+	 
+				<vg-controls>
+					<vg-play-pause-button></vg-play-pause-button>
+					<vg-time-display>{{ currentTime | date:'mm:ss' }}</vg-time-display>
+					<vg-scrub-bar>
+						<vg-scrub-bar-current-time></vg-scrub-bar-current-time>
+					</vg-scrub-bar>
+					<vg-time-display>{{ timeLeft | date:'mm:ss' }}</vg-time-display>
+					<vg-volume>
+						<vg-mute-button></vg-mute-button>
+						<vg-volume-bar></vg-volume-bar>
+					</vg-volume>
+				</vg-controls>
+	 
+			</videogular>	
+		</div>	
+	
+	
+		<div class="sermons" ng-controller="SermonsMainController">
+		    <table class="sermon-playlist smart-table table table-striped" st-pipe="callServer" st-table="sermons">
+		    	<thead>
+			    	<tr>
+			    		<th st-sort="title" >Title</th>
+			    		<th st-sort="pastor" >Pastor</th>
+			    		<th st-sort="description" >Description</th>
+			    		<th st-sort="date" >Date</th>
+			    		<th class="search-sermons" colspan="3">
+			    			<input st-search placeholder="Search..." class="input-sm form-control" type="search" />
+			    		</th>
+			    	</tr>
+		    	</thead>
+		    	<tbody>
+			    	<tr ng-repeat="sermon in sermons">
+			    		<td>{{ sermon.title }}</td>
+			    		<td>{{ sermon.pastor }}</td>
+			    		<td>{{ sermon.description }}</td>
+			    		<td>{{ sermon.date | date:'MM/dd/yyyy' }}</td>
+			    		<td>
+			    			<div class="sermon-indicator">
+			    				<div class="sermon-play-button" ng-show="!audioController.checkAudioId(sermon._id)">
+			    					<a ng-click="audioController.setAudio(sermon._id, sermon.audioFile)">play</a>
+			    				</div>
+			    				<div class="sermon-playing" ng-show="audioController.checkAudioId(sermon._id) && audioController.isPlaying()">
+			    					<img src="/images/playing.gif" />
+			    				</div>
+			    				<div ng-show="audioController.checkAudioId(sermon._id) && audioController.isPaused()" class="sermon-paused"></div>
+			    			</div>
+			    		</td>
+			    		<td>
+			    			<a ng-href="#/admin/sermons/edit/{{ sermon._id}}">edit</a>
+			    		</td>
+			    		<td>
+			    			<a ng-click="deleteSermon(sermon._id)" confirm="Are you sure you want to delete?">delete</a>
+			    		</td>
+			    	</tr> 
+		    	</tbody>
+		    		<tfoot>
+						<tr>
+							<td class="text-center" st-pagination="" st-items-by-page="5" colspan="5">
+							</td>
+						</tr>
+					</tfoot>
+		    </table>
+		</div>
+	
+	</div>
+
+</div>

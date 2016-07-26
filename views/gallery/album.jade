@@ -1,0 +1,51 @@
+extends ../layout/layout
+
+
+block content
+	.main.smain
+		.heading
+			if(language == "English" || language == undefined)
+				p.titleheader #{album.title}
+			else
+				p.titleheader #{album.title_kr}
+		#photo-viewer.photo-viewer.container
+			.row
+				#photo-counter.col-md-12
+					span#cur-photo 12
+					span /
+					span#total-photos 14
+			.row
+				.col-md-12
+					#photo-window.photo-view
+						#photoPrev.photoPrev
+							span.glyphicon-class.glyphicon.glyphicon-chevron-left
+						img#photo-view.photo-view-img(src="", alt="Select an image...")
+						#photoNext.photoNext
+							span.glyphicon-class.glyphicon.glyphicon-chevron-right
+			.row
+				.col-md-4
+					#photoSetPrev.photoSetPrev
+						span.glyphicon-class.glyphicon.glyphicon-chevron-left
+				.col-md-4
+					.container#photo-picker.photo-picker
+						.row
+							#thumbnail0.thumbnail-km.col-md-3(data-pos=0)
+							#thumbnail1.thumbnail-km.col-md-3(data-pos=1)
+							#thumbnail2.thumbnail-km.col-md-3(data-pos=2)
+						.row
+							#thumbnail3.thumbnail-km.col-md-3(data-pos=3)
+							#thumbnail4.thumbnail-km.col-md-3(data-pos=4)
+							#thumbnail5.thumbnail-km.col-md-3(data-pos=5)
+						.row
+							#thumbnail6.thumbnail-km.col-md-3(data-pos=6)
+							#thumbnail7.thumbnail-km.col-md-3(data-pos=7)
+							#thumbnail8.thumbnail-km.col-md-3(data-pos=8)
+						#photo-selector
+				.col-md-4
+					#photoSetNext.photoSetNext
+						span.glyphicon-class.glyphicon.glyphicon-chevron-right
+
+	script(src="/javascripts/gallery/gallery.js")
+	script.
+		var photoList = !{JSON.stringify(album.photos)};
+		var photoViewer = new PhotoViewer(photoList);

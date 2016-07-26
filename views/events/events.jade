@@ -1,0 +1,173 @@
+extends ../layout/layout
+
+
+block content
+	h1
+		Events
+	.container
+		#km-calendar.responsive-calendar
+			.controls
+				a.pull-left(data-go='prev')
+					if(language == "English" || language == undefined)
+						.btn.btn-primary Prev
+					else
+						.btn.btn-primary 이전
+				h4
+					span(data-head-month).month-header
+					span(data-head-year).year-header
+				a.pull-right(data-go='next')
+					if(language == "English" || language == undefined)
+						.btn.btn-primary Next
+					else
+						.btn.btn-primary 다음
+			hr
+			.day-headers
+				if(language == "English" || language == undefined)
+					.day.header Sunday
+					.day.header Monday
+					.day.header Tuesday
+					.day.header Wednesday
+					.day.header Thursday
+					.day.header Friday
+					.day.header Saturday
+				else
+					.day.header 일요일
+					.day.header 월요일
+					.day.header 화요일
+					.day.header 수요일
+					.day.header 목요일
+					.day.header 금요일
+					.day.header 토요일
+			.days(data-group='days')
+	#viewDay.modal.fade
+		.modal-dialog.modal-lg
+			.modal-content
+				if(language == "English" || language == undefined)
+					.modal-header
+						button.close(data-dismiss="modal",aria-label="Close")
+							span(aria-hidden="true") &times;
+						h4.modal-title Event
+					.modal-body
+						#eventViewer.eventViewer
+					.modal-footer
+						button.btn.btn-default(data-dismiss="modal") Close
+				else
+					.modal-header
+						button.close(data-dismiss="modal",aria-label="Translate")
+							span(aria-hidden="true") &times;
+						h4.modal-title Translate
+					.modal-body
+						#eventViewer.eventViewer
+					.modal-footer
+						button.btn.btn-default(data-dismiss="modal") Translate
+	script(src='/javascripts/responsive-calendar.js')
+	if(language == "English" || language == undefined)
+		script(id='ViewEventTemplate',type='text/x-handlebars-template').
+			<div class="single_event">
+				<div class="first-row">
+					<div class="event_title">
+						Title: {{title}}
+					</div>
+					<div class="event_time">
+						<p>{{fromTime.hour}}:{{fromTime.minute}} {{fromTime.period}} - {{toTime.hour}}:{{toTime.minute}} {{toTime.period}}</p>
+					</div>
+				</div>
+				<div class="event_description">
+					Description: {{description}}
+				</div>
+			</div>
+	else
+		script(id='ViewEventTemplate',type='text/x-handlebars-template').
+			<div class="single_event">
+				<div class="first-row">
+					<div class="event_title">
+						Translate: {{title_kr}}
+					</div>
+					<div class="event_time">
+						<p>{{fromTime.hour}}:{{fromTime.minute}} {{fromTime.period}} - {{toTime.hour}}:{{toTime.minute}} {{toTime.period}}</p>
+					</div>
+				</div>
+				<div class="event_description">
+					Translate: {{description_kr}}
+				</div>
+			</div>
+	
+	if(language == "English" || language == undefined)
+		script.
+			var translateMonthArray =  ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+			var korean = false;
+	else
+		script.
+			var translateMonthArray = ["일월", "이월", "삼월", "사월", "오월", "유월", "칠월", "팔월", "구월", "시월", "십일월", "십이월"];
+			var korean = true;
+	script.
+		$(document).ready(function () {
+			/*$('#viewDay').on('show.bs.modal', function (event) {
+				var dayElement = $(event.relatedTarget) // Button that triggered the modal
+				var getDate = dayElement.data('year') + "-" + dayElement.data('month') + "-" + dayElement.data('day');
+				var viewModal = $(this);
+				var self = this;
+				var eventsViewer = $("#eventViewer");
+				eventsViewer.html("");
+				var templateViewSource = $("#ViewEventTemplate").html();
+				var viewEventTemplate = Handlebars.compile(templateViewSource);
+				
+				$.get('/events/getDayEvents',{date: getDate},function(dayEvents){
+					var viewingEvents = dayEvents;
+					if(viewingEvents.length == 0){
+						eventsViewer.html("No events...");
+					}else{
+						for(var i = 0; i < viewingEvents.length; i++){
+							var htmlTemplate = editEventTemplate(viewingEvents[i]);
+							eventsViewer.append(htmlTemplate);
+						}
+					}
+				});
+			});*/
+			
+			$("#km-calendar").responsiveCalendar({
+				onDayClick: function(events){
+					$('#viewDay').modal();
+				},
+				onDrawChange: function(events){
+					$("#km-calendar").responsiveCalendar('getMonthYear', function(currYear, currMonth){
+						$.get('/events/getMonthEvents',{month: currMonth, year: currYear},function(monthEvents){
+							$("#km-calendar").responsiveCalendar('clearAll');
+							$("#km-calendar").responsiveCalendar('edit', monthEvents);
+						});
+					});
+				},
+				activateNonCurrentMonths: false,
+				startFromSunday: true,
+				translateMonths: translateMonthArray,
+				setKorean: korean
+			});
+			
+			$("#km-calendar").on("click", ".dayContainer", function(){
+				var dayElement = $(this) // Button that triggered the modal
+				var getDate = dayElement.data('year') + "-" + dayElement.data('month') + "-" + dayElement.data('day');
+				var viewModal = $(this);
+				var self = this;
+				var eventsViewer = $("#eventViewer");
+				eventsViewer.html("");
+				var templateViewSource = $("#ViewEventTemplate").html();
+				var viewEventTemplate = Handlebars.compile(templateViewSource);
+				
+				$.get('/events/getDayEvents',{date: getDate},function(dayEvents){
+					var viewingEvents = dayEvents;
+					if(viewingEvents.length == 0){
+						eventsViewer.html("No events...");
+					}else{
+						for(var i = 0; i < viewingEvents.length; i++){
+							var htmlTemplate = viewEventTemplate(viewingEvents[i]);
+							eventsViewer.append(htmlTemplate);
+						}
+					}
+				});
+			
+				$('#viewDay').modal();
+			});			
+			
+		});
+
+

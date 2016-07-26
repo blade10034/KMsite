@@ -1,0 +1,63 @@
+doctype html
+html
+	head
+		title= title
+		link(rel='stylesheet' type='text/css' href="http://fonts.googleapis.com/css?family=Lobster")
+		link(rel='stylesheet', href='/bootstrap/css/bootstrap.min.css')
+		link(rel='stylesheet', href='/stylesheets/main.css')
+		link(rel='stylesheet', href='/stylesheets/responsive-calendar.css')
+		link(rel='stylesheet', href='/stylesheets/admin.css')
+		link(rel='stylesheet', href='/javascripts/jquery-ui-1.11.4/jquery-ui.min.css')
+		script(src='/javascripts/jquery.min.js')
+		script(src='/javascripts/jquery-ui-1.11.4/jquery-ui.min.js')
+		script(src='/bootstrap/js/bootstrap.js')
+		script(src='/javascripts/handlebars.js')
+		script(src='/javascripts/jeditable.js')
+	body
+		#header
+				#inheader
+					#logo
+						#logoimage
+							a(href='/'): img(width="74px" height="74px" src='/images/logo/cross.png')
+						#logowords
+							#logotitle.vertical-align
+								p(style='white-space:pre;')
+									p.logotop New Life
+									p.logobottom Presbytarian Church
+					#headnav
+						#navigate.vertical-align
+							a(href='/info/').headerfont
+								span.glyphicon.glyphicon-off.vertflip(aria-label='true').orange
+								|  Navigate
+						#timelocation.vertical-align
+							if isTimeLocation
+								p.headerfont
+									span.glyphicon.glyphicon-map-marker(aria-label='true').orangefade
+									|  Time & Location
+							else
+								a(href='/directions').headerfont
+									span.glyphicon.glyphicon-map-marker(aria-label='true').orange
+									|  Time & Location
+				#drop
+					#dropheader
+					#dropmain
+						#dropphoto
+						
+		block content
+		footer
+			#footer
+				#infooter
+					#ftop
+						.footer.vertical-align
+							a(href='/info') About Us
+						.footer.vertical-align
+							a(href='/directions') Get Directions
+						.footer.vertical-align.footer-style
+							a(href='/contact') Contact Us
+						.footer.vertical-align.footer-style
+							a(href='/events') Calender
+					#fbar
+						#fbarleft
+							p 1501 N Rolling Road | Catonsville, MD 21228 | (410) 744-5711
+						#fbarright 
+							p @ 2015 New Life Presbytarian Church

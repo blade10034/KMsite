@@ -1,0 +1,93 @@
+extends ../layout
+
+block content
+	.main
+		h3 Edit Album
+		
+		#edit-album-title.edit-album-title.form-group
+			label.title-label(for="albumTitle") Title:
+			.album-title-input
+				.input-group.album-title-inputGroup
+					input#albumTitle.albumTitle.form-control(placeHolder="Title...",type="text",value="#{album.title}")
+					span.input-group-btn
+						button#updateTitleBtn.btn.btn-default(type="button") Update
+				.title-update-status
+					span#failed-upload.failed-upload.hidden.glyphicon.glyphicon-remove-circle
+					span#successful-upload.successful-upload.hidden.glyphicon.glyphicon-ok-circle
+					img#splash-update(src="/images/loadingCircle.gif").hidden
+		#add-photo-message 
+			span.glyphicon.glyphicon-arrow-down(aria-hidden="true")
+			span.message Click or Drag Photos Here
+			span.glyphicon.glyphicon-arrow-down(aria-hidden="true")
+		#upload-album-photos.album-dropzone
+			if(album.photos)
+				each photo in album.photos
+					.dropzone-album-container
+						img.dropzone-img(src="/gallery/#{photo}")
+						span.remove-image.glyphicon.glyphicon-remove(data-album="#{album._id}", data-img="#{photo}")
+		script(id='showPhotos',type='text/x-handlebars-template').
+			{{#each photos}}
+				<div class="dropzone-album-container">
+					<img class="dropzone-img" src="/gallery/{{this}}"/>
+					<span class="remove-image glyphicon glyphicon-remove" data-album="#{album._id}" data-img="{{this}}"></span>
+				</div>
+			{{/each}}
+		script(src="/javascripts/dropzone.js")
+		script.
+			$(document).ready(function(){
+				$("#updateTitleBtn").on("click", function(){
+					$("#failed-upload").addClass("hidden");
+					$("#successful-upload").addClass("hidden");
+					$("#splash-update").removeClass("hidden");
+					
+					$.ajax({
+						type: "POST",
+						url: "/gallery/updateAlbumTitle",
+						data: {_id: "#{album._id}", title: $("#albumTitle").val()},
+						success: function(){
+							$("#splash-update").addClass("hidden");
+							$("#failed-upload").addClass("hidden");
+							$("#successful-upload").removeClass("hidden");
+						},
+						error: function(error){
+							$("#splash-update").addClass("hidden");
+							$("#successful-upload").addClass("hidden");
+							$("#failed-upload").removeClass("hidden");
+						}
+					});
+					
+				});
+				
+				$("#upload-album-photos").on("click", ".remove-image", function(e){
+						var albumId = $(this).data("album");
+						var photo = $(this).data("img");
+						
+						$.ajax({
+							type: "DELETE",
+							url: "/gallery/removePhoto",
+							data: {_id: albumId, photo: photo},
+							success: function(album){
+								var templateShowPhotos = $("#showPhotos").html();
+								var compileTemplate = Handlebars.compile(templateShowPhotos);
+								
+								$("#upload-album-photos").html(compileTemplate(album));
+							}
+						});
+				});
+				
+				var successFunction = function(file, album, e){
+					var templateShowPhotos = $("#showPhotos").html();
+					var compileTemplate = Handlebars.compile(templateShowPhotos);
+					
+					$("#upload-album-photos").html(compileTemplate(album));
+				};
+				
+				var photoDropZone = new Dropzone("#upload-album-photos", {
+					url: "/gallery/uploadPhoto/?albumId=#{album._id}", 
+					uploadMultiple: true,
+					autoProcessQueue: true,
+					createImageThumbnails: false,
+					successmultiple: successFunction
+				});
+				
+			});

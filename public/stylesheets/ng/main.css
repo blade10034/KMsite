@@ -1,0 +1,184 @@
+@font-face {
+	font-family: heroFont;
+	src: url(/fonts/Hero.otf);
+}
+
+body {
+	margin: 0px;
+	font-family: heroFont;
+	min-height: 2000px;
+	height: 2000px;
+	width: 100%;
+	background-color: #FDFDFD;
+}
+
+.angularApp {
+	margin: 0px;
+	height: 100%;
+}
+
+.welcome-bar {
+	width: 100%;
+	/*background-image: url('/images/background/headfoot.png');*/
+	background-color: #0E2F54;
+	overflow: auto;
+	border-bottom: 2px solid;
+	border-color: black;
+}
+
+.church-icon {
+	margin: 7px;
+	width: 80px;
+	float: left;
+}
+
+.church-title h1 {
+	font-size: 1.6em;
+	color: white;
+}
+
+.navigation-menu {
+	width: 200px;
+	/*background-image: url('/images/background/inskynet.png');*/
+	background-color: #2C5A8E;
+	height: 100%;
+	padding-top: 20px;
+	margin-top: -2px;
+	border-top: 2px solid;
+	border-top-color: white;
+	border-right: 1px solid;
+	border-right-color: black;
+	display: inline-block;
+	vertical-align: top;
+}
+
+.navigation-menu-item {
+	width: 130px;
+	margin: auto;
+	color: white;
+	margin-top: 20px;
+}
+
+.navigation-menu-item a {
+	font-size: 4.6;
+}
+
+.navigation-menu-item a:link {
+	color: white;
+}
+
+.navigation-menu-item a:visited {
+	color: white;
+}
+
+.navigation-menu-item a:hover {
+	color: #FFC56C;
+}
+
+.navigation-menu-item a:link {
+	text-decoration: none;
+}
+
+.navigation-menu-item a:visited {
+	text-decoration: none;
+}
+
+.main-view {
+	display: inline-block;
+	padding-left: 25px;
+	padding-top: 17px;
+	height: 100%;
+	vertical-align: top;
+	color: #0E2F54;
+	width: 80%;
+}
+
+.videogular-container.audio {
+	width: 728px;
+	height: 50px;
+	margin: auto;
+	margin-top: 70px;
+	margin-bottom: 70px;
+}
+
+.sermon-indicator{
+	height: 48px;
+    width: 48px;
+}
+
+.sermon-playing{
+    height: 48px;
+    width: 48px;
+}
+
+.sermon-paused{
+	background-attachment: scroll;
+    background-clip: border-box;
+    background-color: inherit;
+    background-image: url("/images/audioSprites.png");
+    background-origin: padding-box;
+    background-position: -784px -218px;
+    background-repeat: no-repeat;
+    background-size: auto auto;
+    height: 48px;
+    width: 48px;
+}
+
+.content-header {
+	border-bottom: 1px solid;
+	border-bottom-color: #0E2F54;
+	margin-bottom: 15px;
+}
+
+.sermons{
+	width: 1100px;
+	margin: auto;
+}
+
+.sermons-playlist th{
+	cell-padding: 2px;
+}
+
+.search-sermons{
+	width: 200px;
+}
+
+.search-sermons input{
+	float: right;
+}
+
+.sermon-playlist {
+  border-collapse: separate;
+  border-spacing: 0 7px;
+}
+
+.sermon-playlist thead th {
+  background-color: #2c5a8e;
+  color: white;
+  vertical-align: middle;
+  font-size: 1.3em;
+}
+
+.sermon-playlist thead th:hover {
+  color: #D99936;
+  cursor:pointer;
+}
+
+.sermon-playlist tbody td {
+  background-color: #FEFEFE;
+}
+
+
+.sermon-playlist tbody tr:hover td{
+  background-color: #FFC56C;
+  color: white;
+  cursor: pointer;
+}
+
+.admin-menu {
+	margin-left: 45px;
+}
+
+.admin-item a{
+	font-size: 1.5em;
+}

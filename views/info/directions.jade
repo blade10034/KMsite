@@ -1,0 +1,46 @@
+extends ../layout/layout
+
+
+block content
+	.main.smain
+		.contact-main
+			.heading
+				if(language == "English" || language == undefined)
+					p.titleheader.no Directions
+				else
+					p.titleheader.no Need Translation
+			.backext
+				.infodirect
+					.directaddress.in
+						if(language == "English" || language == undefined)
+							p.header Address
+						else
+							p.header Need Translation
+						p.miniheader.in 1501 N Rolling Road
+						p.miniheader.in Catonsville, MD 21228
+						p.in (410) 744-5711
+					.directschedule.in
+						if(language == "English" || language == undefined)
+							p.header Schedule
+							p.miniheader.in Bible Study
+							p.in 11:15am - 12:15pm
+							p.miniheader.in Lunch
+							p.in 12:15pm - 1:15pm
+							p.miniheader.in Service
+							p.in 1:15pm - 2:15pm
+						else
+							p.header Need Translation
+							p.miniheader.in Need Translation
+							p.in 11:15am - 12:15pm
+							p.miniheader.in Need Translation
+							p.in 12:15pm - 1:15pm
+							p.miniheader.in Need Translation
+							p.in 1:15pm - 2:15pm
+					.googlemaps
+						a.btn.btn-default(href='https://www.google.com/maps/dir//1501+N+Rolling+Rd,+Catonsville,+MD+21228/@39.302904,-76.75208,17z/data=!4m13!1m4!3m3!1s0x89c81eb4beae8eef:0x908559b5423df082!2s1501+N+Rolling+Rd,+Catonsville,+MD+21228!3b1!4m7!1m0!1m5!1m1!1s0x89c81eb4beae8eef:0x908559b5423df082!2m2!1d-76.75208!2d39.302904' target="_blank").blue
+							if(language == "English" || language == undefined)
+								|Directions
+							else
+								|Need Translation
+				.map
+					img(width="600" height="400" src="/images/map/mapcomp.png")

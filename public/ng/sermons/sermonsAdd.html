@@ -1,0 +1,64 @@
+<div>
+	<div ng-include src="'/ng/sermons/sermons.html'"  ng-controller="SermonsController"></div>
+
+	<form id="addSermonForm" name="addSermonForm" enctype="multipart/form-data" ng-submit="addSermonForm.$valid && addSermon()" novalidate>
+		<div class="input-group">
+			<div class="row">
+				<div class="form-group col-md-5" ng-class="{ 'has-error': addSermonForm.title.$invalid && (addSermonForm.title.$touched || addSermonForm.$submitted) }">
+					<label for="#title">English Title</label> 
+					<input type="text" class="form-control" name="title" id="title" ng-model="title" required />
+					<div ng-show="addSermonForm.$submitted || addSermonForm.title.$touched">
+						<p class="help-block" ng-show="addSermonForm.title.$error.required">Title is required</p>
+					</div>
+				</div>
+				<div class="col-md-2"></div>
+				<div class="form-group col-md-5" ng-class="{ 'has-error': addSermonForm.title_kr.$invalid && (addSermonForm.title_kr.$touched || addSermonForm.$submitted) }">
+					<label for="#title">Korean Title</label> 
+					<input type="text" class="form-control" name="title_kr" id="title_kr" ng-model="title_kr" required />
+					<div ng-show="addSermonForm.$submitted || addSermonForm.title_kr.$touched">
+						<p class="help-block" ng-show="addSermonForm.title.$error.required">Korean title is required</p>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="form-group col-md-5" ng-class="{ 'has-error': addSermonForm.pastor.$invalid && (addSermonForm.pastor.$touched || addSermonForm.$submitted) }">
+					<label for="#pastor">Pastor</label> 
+					<input type="text" class="form-control" name="pastor" id="pastor" ng-model="pastor" required />
+					<div ng-show="addSermonForm.$submitted || addSermonForm.pastor.$touched">
+						<p class="help-block" ng-show="addSermonForm.title.$error.required">Title is required</p>
+					</div>
+				</div>
+				<div class="col-md-2"></div>
+				<div class="form-group col-md-5" >
+					<label for="#date">Date</label> 
+					<md-datepicker ng-model="date" md-placeholder="Enter date" required></md-datepicker>
+				</div>
+			</div>
+			<div class="row">
+				<div class="form-group col-md-5">
+					<label for="#description">English Description</label>
+					<textarea type="text" class="form-control" name="description" id="description" ng-model="description"></textarea>
+				</div>
+				<div class="col-md-2"></div>
+				<div class="form-group col-md-5">
+					<label for="#description">Korean Description</label>
+					<textarea type="text" class="form-control" name="description_kr" id="description_kr" ng-model="description_kr"></textarea>
+				</div>
+			</div>
+			<div class="row">
+				<div class="form-group col-md-5" ng-class="{ 'has-error': addSermonForm.file.$invalid && (addSermonForm.$submitted) }">
+					<label for="file">Sermon Audio</label> 
+					<input type="file" valid-file name="file" id="file" accept="audio/mp3" file-model="audioFile" ng-model="audioFile" required >
+					<div ng-show="addSermonForm.$submitted">
+						<p class="help-block" ng-show="addSermonForm.file.$error.required">Audio file is required</p>
+					</div>
+				</div>
+
+			</div>
+
+			<br/><br/>
+
+			<input type="submit" value="Add Sermon"/>
+		</div>
+	</form>
+</div>

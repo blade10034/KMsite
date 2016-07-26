@@ -1,0 +1,25 @@
+extends ../layout
+
+
+block content
+	.main.indexheight
+		h2 Admin Page
+		.adminOption.adminAnnouncement
+			form(method="post",action="/announcement/edit",id="announcementForm")
+				.edit_announcements
+					.english_announcement
+						h4 English Announcement
+						textarea#announcementEdit(name="announcementEdit", form="announcementForm") #{announcement}
+					.korean_announcement
+						h4 Korean Announcment (발표)
+						textarea#announcementEdit_kr(name="announcementEdit_kr", form="announcementForm") #{announcement_kr}
+				input(type="submit" value="Set Announcement")
+		h4 Other Settings
+		.adminOption
+			a(href="/admin/events") Events Calendar
+		.adminOption
+			a(href="/admin/sermons") Sermons
+		.adminOption
+			a(href="/admin/gallery") Gallery
+		.adminOption
+			a(href="/admin/newsletter") News Letter

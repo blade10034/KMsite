@@ -1,0 +1,124 @@
+.eventsViewer{
+	overflow-y: auto;
+	height: 400px;
+	max-height: 400px;
+}
+
+.uploadViewer{
+	min-height: 430px;
+	height: 430px;
+}
+
+.uploadSermonSubmit{
+	float:right;
+}
+
+.updateSermonSubmit{
+	float:right;
+}
+
+.uploadViewer input{
+	padding: 10px;
+}
+
+.edit_announcements{
+	width: 800px;
+}
+
+.english_announcement{
+	display: inline-block;
+	width: 390px;
+	margin-right: 20px;
+}
+.korean_announcement{
+	display: inline-block;
+	width: 390px;
+}
+
+.single_event{
+	min-height: 120px;
+	margin: 0 0 10px;
+	padding: 5px;
+}
+
+.single_event.single_event_expand{
+	min-height: 220px;
+}
+
+
+.single_event .delete_event{
+	float: right;
+}
+
+.single_event .event_update{
+	float: left;
+	margin-right: 7px;
+}
+
+.single_event .event_cancel{
+	float: left;
+}
+
+.addEvent {
+	float: left;
+}
+
+.single_event_edit .first-row{
+	height: 70px;
+}
+
+.single_event_edit .second-row{
+	height: 120px;
+}
+
+.single_event_edit .third-row{
+	height: 120px;
+}
+
+.single_event_edit .event_time{
+	float: right;
+}
+
+.single_event_edit .event_title{
+	float: left;
+}
+
+.single_event_edit .event_title_kr{
+	margin-left: 7px;
+	float: left;
+}
+
+.select_event_container {
+	display: inline-block;
+}
+
+.adminOption{
+	margin: 10px;
+}
+
+
+.adminOption textarea{
+	width: 95%;
+	height: 60px;
+	margin: 10px;
+}
+
+#loading-overlay {
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    background: #222;
+    opacity: 0.4;
+}
+#loadingImg {
+    width: 50px;
+    height: 57px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin: -28px 0 0 -25px;
+}
+
+
