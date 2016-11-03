@@ -1,4 +1,4 @@
-angular.module('events', ['ngMaterial',
+/*angular.module('events', ['ngMaterial',
                         'ngMessages',
                         'ngSanitize',
             			'ngConfirm',
@@ -19,4 +19,4 @@ angular.module('events').controller('EventsController', function($scope, sermonS
     };
 
 
-});
+});*/

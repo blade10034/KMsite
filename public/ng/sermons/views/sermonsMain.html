@@ -1,0 +1,37 @@
+<div class="sermons">
+  <table class="sermon-playlist smart-table table table-striped" st-pipe="sermonController.sermonTable.callServer" st-table="sermons">
+  	<thead>
+    	<tr>
+    		<th st-sort="title" >Title</th>
+    		<th st-sort="pastor" >Pastor</th>
+    		<th st-sort="description" >Description</th>
+    		<th st-sort="date" >Date</th>
+    		<th class="search-sermons" colspan="1">
+    			<input st-search placeholder="Search..." class="input-sm form-control" type="search" />
+    		</th>
+    	</tr>
+  	</thead>
+  	<tbody>
+    	<tr ng-repeat="sermon in sermonController.sermonTable.sermons" ng-click="sermonController.audioPlayer.setAudio(sermon.id, sermon.audioFile)">
+    		<td>{{ sermon.title }}</td>
+    		<td>{{ sermon.pastor }}</td>
+    		<td>{{ sermon.description }}</td>
+    		<td>{{ sermon.date | date:'MM/dd/yyyy' }}</td>
+    		<td>
+    			<div class="sermon-indicator">
+    				<div class="sermon-playing" ng-show="sermonController.audioPlayer.checkAudioId(sermon.id) && sermonController.audioPlayer.isPlaying()">
+    					<img src="/images/playing.gif" />
+    				</div>
+    				<div ng-show="sermonController.audioPlayer.checkAudioId(sermon.id) && sermonController.audioPlayer.isPaused()" class="sermon-paused"></div>
+    			</div>
+    		</td>
+    	</tr>
+  	</tbody>
+  		<tfoot>
+			<tr>
+				<td class="text-center" st-pagination="" st-items-by-page="5" colspan="5">
+				</td>
+			</tr>
+		</tfoot>
+  </table>
+</div>

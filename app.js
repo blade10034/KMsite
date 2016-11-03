@@ -12,22 +12,30 @@ var multer = require('multer');
 var isAuth = require('./Util/isAuth.js');
 
 var routes = require('./routes/index');
-var users = require('./routes/users');
-var admin = require('./routes/admin');
 var events = require('./routes/events');
 var sermons = require('./routes/sermons');
 var gallery = require('./routes/gallery');
 var announcement = require('./routes/announcement');
+var fileRouter = require('./routes/files');
 var range = require('express-range');
 
 var app = express();
 var mongoose = require('mongoose');
+var Grid = require('gridfs-stream');
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
 var conn = mongoose.createConnection('localhost:27017/KmDb');
 var db = conn.db;
+
+conn.once('open', function(){
+  var gfs = Grid(conn.db, mongoose.mongo);
+  app.set('gridfs', gfs);
+});
+
 mongoose.connect('localhost:27017/KmDb');
+
+
 
 // uncomment after placing your favicon in /public
 //app.use(favicon(__dirname + '/public/favicon.ico'));
@@ -65,11 +73,10 @@ app.use(range({
 
 app.use('/', routes);
 app.use('/sermons', sermons);
-app.use('/users', users);
-app.use('/admin', admin);
 app.use('/events', events);
 app.use('/announcement', announcement);
 app.use('/gallery', gallery);
+app.use('/media', fileRouter);
 
 
 var Account = require('./schema/account');

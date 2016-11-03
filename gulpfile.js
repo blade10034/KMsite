@@ -10,7 +10,7 @@ gulp.task('default', function () {
     .pipe(gulpDebug({title: 'Angular:'}))
     .pipe(concat('angularApp.js'))
     .pipe(ngAnnotate())
-    .pipe(uglify())
+    //.pipe(uglify())
     .pipe(gulp.dest('./public/javascripts/'))
 });
 

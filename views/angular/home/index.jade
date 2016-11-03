@@ -9,8 +9,9 @@ html
 		link(rel='stylesheet', href='/bower_components/fullcalendar/dist/fullcalendar.print.css', media='print')
 		link(rel="stylesheet",type="text/css",href="/stylesheets/ng/main.css")
 		script(src='/bower_components/angular/angular.js')
-		script(src='/bower_components/angular-route/angular-route.min.js')
+		script(src='/bower_components/angular-ui-router/release/angular-ui-router.min.js')
 		script(src='/bower_components/angular-sanitize/angular-sanitize.min.js')
+		script(src='/bower_components/satellizer/dist/satellizer.min.js')
 		script(src='/bower_components/angular-animate/angular-animate.min.js')
 		script(src='/bower_components/angular-aria/angular-aria.min.js')
 		script(src='/bower_components/angular-messages/angular-messages.min.js')
@@ -50,4 +51,4 @@ html
 				.navigation-menu-item
 					a(href="#/admin") Admin
 			.main-view
-				ng-view
+				ui-view
