@@ -14,6 +14,8 @@ var forms_1 = require("@angular/forms");
 var http_1 = require("@angular/http");
 var app_routing_module_1 = require("./app-routing.module");
 var app_component_1 = require("./app.component");
+var sermon_component_1 = require("./sermons/sermon.component");
+var dashboard_component_1 = require("./dashboard/dashboard.component");
 var AppModule = (function () {
     function AppModule() {
     }
@@ -28,7 +30,9 @@ AppModule = __decorate([
             app_routing_module_1.AppRoutingModule
         ],
         declarations: [
-            app_component_1.AppComponent
+            app_component_1.AppComponent,
+            sermon_component_1.SermonComponent,
+            dashboard_component_1.DashboardComponent
         ],
         providers: [],
         bootstrap: [app_component_1.AppComponent]

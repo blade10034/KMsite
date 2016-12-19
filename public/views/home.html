@@ -1,1 +1,30 @@
-<h1>HI!</h1>
+<div class="angularApp">
+    <div class="welcome-bar">
+    <div class="church-icon">
+        <img width="60px" height="70px" src='/assets/crossSimple3.png' />
+    </div>
+    <div class="church-title">
+        <h1>New Life <br> Presbyterian Church</h1>
+    </div>
+    </div>
+    <div class="navigation-menu">
+    <div class="navigation-menu-item">
+        <a routerLink="/sermons"> Sermons </a>
+    </div>
+    <div class="navigation-menu-item">
+        <a routerLink="/events"> Calendar </a>
+    </div>
+    <div class="navigation-menu-item">
+        <a routerLink="/gallery"> Gallery </a>
+    </div>
+    <div class="navigation-menu-item">
+        <a routerLink="/contact"> Contact Info </a>
+    </div>
+    <div class="navigation-menu-item">
+        <a routerLink="/admin">Admin</a>
+    </div>
+    </div>
+    <div class="main-view">
+        <router-outlet></router-outlet>
+    </div>
+</div>

@@ -10,7 +10,13 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require("@angular/core");
 var router_1 = require("@angular/router");
-var routes = [];
+var sermon_component_1 = require("./sermons/sermon.component");
+var dashboard_component_1 = require("./dashboard/dashboard.component");
+var routes = [
+    { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
+    { path: 'sermons', component: sermon_component_1.SermonComponent },
+    { path: 'dashboard', component: dashboard_component_1.DashboardComponent }
+];
 var AppRoutingModule = (function () {
     function AppRoutingModule() {
     }

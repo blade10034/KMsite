@@ -9,17 +9,17 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require("@angular/core");
-var AppComponent = (function () {
-    function AppComponent() {
+var SermonComponent = (function () {
+    function SermonComponent() {
     }
-    return AppComponent;
+    return SermonComponent;
 }());
-AppComponent = __decorate([
+SermonComponent = __decorate([
     core_1.Component({
         selector: 'my-app',
-        templateUrl: '/views/home.html'
+        templateUrl: '/views/sermons/sermonsHome.html'
     }),
     __metadata("design:paramtypes", [])
-], AppComponent);
-exports.AppComponent = AppComponent;
-//# sourceMappingURL=app.component.js.map
+], SermonComponent);
+exports.SermonComponent = SermonComponent;
+//# sourceMappingURL=sermon.component.js.map

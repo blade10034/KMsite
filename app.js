@@ -31,11 +31,11 @@ conn.once('open', function(){
 //mongoose.connect('localhost:27017/KmDb');
 
 // Setup express routes
-app.use(sermons);
-app.use(events);
-app.use(announcement);
-app.use(gallery);
-app.use(fileRouter);
+/*app.use('/api/sermons', sermons);
+app.use('/api/events', events);
+app.use('/api/announcement', announcement);
+app.use('/api/gallery', gallery);
+app.use('/api/fileRouter', fileRouter);*/
 
 //Setup multer file upload location and onError
 multer({
@@ -101,7 +101,7 @@ app.use('/scripts', express.static(path.join(__dirname, '/node_modules/')));
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.get('*', function (req, res, next) {
-    res.sendFile('./public/index.html');
+    res.sendFile(path.resolve('public/index.html'));
 });
 
 module.exports = app;

@@ -4,8 +4,9 @@ import { FormsModule }        from '@angular/forms';
 import { HttpModule }         from '@angular/http';
 
 import { AppRoutingModule }   from './app-routing.module';
-
 import { AppComponent }       from './app.component';
+import { SermonComponent }    from './sermons/sermon.component';
+import { DashboardComponent }    from './dashboard/dashboard.component';
 
 @NgModule ({
   imports: [
@@ -15,7 +16,9 @@ import { AppComponent }       from './app.component';
     AppRoutingModule
   ],
   declarations: [
-    AppComponent
+    AppComponent,
+    SermonComponent,
+    DashboardComponent
   ],
   providers: [
    ],
